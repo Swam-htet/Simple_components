@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validation</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<body>
+    <div class="container p-5">
+        <div id="email-validation" class="w-50 p-3">
+            <div>
+                <label for="email" class="form-label">Enter Your Email : </label>
+                <input type="email" name="input" id="email-input" class="form-control">
+                <div id="email-validation-status" class="mt-1"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    // parameter input/ validation status 
+    function emailValidationFunction(input, status) {
+
+        input = document.getElementById(input);
+        status = document.getElementById(status);
+
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        function validationProcess() {
+            let result = emailRegex.test(input.value);
+            if (result) {
+                status.textContent = "Valid Email";
+                status.classList.remove('text-danger');
+                status.classList.add('text-success');
+            }
+            else {
+                status.textContent = "Invalid Email";
+                status.classList.add('text-danger');
+                status.classList.remove('text-success');
+
+
+            }
+        }
+        input.addEventListener('keyup', validationProcess);
+    }
+
+    emailValidationFunction('email-input', 'email-validation-status');
+</script>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabs</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="tabs-example">
+            <ul class="nav" id="nav-control">
+                <li class="nav-item">
+                    <button class="nav-link control" id="control-1">Item 1</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link control" id="control-2">Item 2</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link control" id="control-3">Item 3</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link control" id="control-4">Item 4</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link control" id="control-5">Item 5</button>
+                </li>
+            </ul>
+            <div id="tabs">
+                <div class="card p-5 tab" id="tab-1">
+                    <h1>Box - 1</h1>
+                </div>
+                <div class="card p-5 tab" id="tab-2">
+                    <h1>Box - 2</h1>
+                </div>
+                <div class="card p-5 tab" id="tab-3">
+                    <h1>Box - 3</h1>
+                </div>
+                <div class="card p-5 tab" id="tab-4">
+                    <h1>Box - 4</h1>
+                </div>
+                <div class="card p-5 tab" id="tab-5">
+                    <h1>Box - 5</h1>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script>
+    // (() => {
+    // tabs 
+    let tabs = document.querySelectorAll('.tab');
+
+    // hide tab
+    tabs.forEach((tab) => {
+        if (tab.id !== "tab-1") {
+            tab.style.display = 'none';
+        }
+    });
+
+    // control buttons
+    let controls = document.querySelectorAll('.control');
+
+    // bind handler 
+    Array.from(controls).map((control, index) => {
+        control.addEventListener('click', (e) => {
+            tabFunction(index);
+        })
+    })
+
+
+    function tabFunction(index) {
+        
+        // index+1
+        index++;
+
+        // hide tab
+        tabs.forEach((tab) => {
+            if (tab.id !== index) {
+                tab.style.display = 'none';
+            }
+        });
+        let showTab = document.getElementById("tab-" + index);
+        showTab.style.display = 'block';
+    }
+
+
+
+    // })()
+</script>
+
+</html>

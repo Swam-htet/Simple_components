@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<body>
+    <div class="container p-5">
+        <div id="dropdown">
+            <button type="button" id="dropdown-btn" class="btn btn-outline-danger">Drop Button</button>
+            <div id="dropdown-box" class="card p-5">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus pariatur quo obcaecati quam
+                nesciunt
+                quas tempore illum consectetur, voluptatem, autem fugiat tempora dolore dolorem eius consequuntur sunt
+                esse
+                officia atque.
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function dropdownFunction(btn, box) {
+        let status = false;
+        btn = document.getElementById(btn);
+        box = document.getElementById(box);
+
+        btn.addEventListener("click", () => {
+            if (status) {
+                box.style.display = "block"
+            }
+            else {
+                box.style.display = 'none'
+            }
+            status = !status;
+        })
+    }
+    dropdownFunction('dropdown-btn', 'dropdown-box');
+</script>
+
+</html>

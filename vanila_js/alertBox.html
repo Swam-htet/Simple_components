@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<body>
+    <div class="container p-5">
+        <div class="alert alert-danger m-3 p-5" id="alert-box">
+            <h1>Alert Message</h1>
+        </div>
+        <div class="button btn btn-danger" id="alert-btn">Alert Button</div>
+    </div>
+</body>
+<script>
+    function alertFunction(btn, alert) {
+
+        btn = document.getElementById(btn);
+        alert = document.getElementById(alert);
+        alert.style.display = 'none';
+
+        function alertMessage() {
+            alert.style.display = 'block';
+
+            setTimeout(() => {
+                alert.style.display = 'none';
+            }, 5000);
+        }
+
+        btn.addEventListener('click', alertMessage);
+    }
+    alertFunction('alert-btn', 'alert-box');
+</script>
+
+</html>

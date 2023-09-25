@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<body>
+    <div id="root" class="container"></div>
+</body>
+<script>
+    // root element 
+    let root = document.getElementById('root');
+    root.classList.add('list-group')
+
+
+    let list = [
+        {
+            title: "title",
+            content: "This is content"
+        },
+        {
+            title: "title",
+            content: "This is content"
+        },
+        {
+            title: "title",
+            content: "This is content"
+        },
+        {
+            title: "title",
+            content: "This is content"
+        },
+    ];
+
+
+    list.map((item, index) => {
+
+
+        // box element 
+        let box = document.createElement('div');
+        box.classList.add('list-group-item', 'p-3');
+
+
+        // button 
+        let btn = document.createElement('div');
+        btn.classList.add('btn', 'btn-primary');
+        btn.textContent = `Item - ${index+1}`
+        box.appendChild(btn);
+
+        // hidden box 
+        let hidden = document.createElement('div');
+        hidden.setAttribute('id', "box-" + index);
+
+
+        // box header 
+        let header = document.createElement('h1');
+        header.textContent = item.title;
+
+        hidden.appendChild(header);
+
+        // box content 
+        let content = document.createElement('p');
+        content.textContent = item.content;
+
+        hidden.appendChild(content);
+
+        box.appendChild(hidden);
+
+        // box to root element 
+        root.appendChild(box);
+    })
+</script>
+
+</html>
